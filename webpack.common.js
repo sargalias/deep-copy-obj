@@ -14,7 +14,15 @@ module.exports = env => ({
     rules: [
       {
         test: /\.ts/,
-        use: ['ts-loader', 'eslint-loader'],
+        use: [
+          'ts-loader',
+          {
+            loader: 'eslint-loader',
+            options: {
+              emitWarning: !env.isProd,
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
     ],
