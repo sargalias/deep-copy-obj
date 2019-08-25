@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = {
+module.exports = env => ({
   mode: 'production',
   entry: './src/index.ts',
   output: {
@@ -19,4 +19,4 @@ module.exports = {
       },
     ],
   },
-};
+});
