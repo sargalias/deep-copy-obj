@@ -7,7 +7,8 @@
     "import/no-extraneous-dependencies": [
       "error",
       { "devDependencies": ["**/*.test.ts"] }
-    ]
+    ],
+    "no-use-before-define": 0
   },
   "env": {
     "jest": true,
