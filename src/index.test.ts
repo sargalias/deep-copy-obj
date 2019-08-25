@@ -1,6 +1,10 @@
 import each from 'jest-each';
 import deepCopyObj from './index';
 
+interface Obj {
+  [k: string]: any;
+}
+
 describe('deepCopyObj', () => {
   describe('equality tests', () => {
     each`
@@ -20,6 +24,23 @@ describe('deepCopyObj', () => {
     `.test('deepCopyObj() called with $obj should return $obj', ({ obj }) => {
       const result = deepCopyObj(obj);
       expect(result).toEqual(obj);
+    });
+
+    test('other subtypes of Object should be ignored', () => {
+      const obj: Obj = {
+        a: { a: 5, b: null, c: undefined, d: { a: 1, b: null, c: undefined } },
+        f: new Date(),
+        e: [1, 2, 3],
+        d: { a: 5, b: null, c: undefined, d: { a: 1, b: null, c: undefined } },
+      };
+      const expected: Obj = {
+        a: { a: 5, b: null, c: undefined, d: { a: 1, b: null, c: undefined } },
+        d: { a: 5, b: null, c: undefined, d: { a: 1, b: null, c: undefined } },
+      };
+
+      const result = deepCopyObj(obj);
+
+      expect(result).toEqual(expected);
     });
   });
 
@@ -48,20 +69,16 @@ describe('deepCopyObj', () => {
     });
 
     test('result of deeply nested object should not have the same objects in references', () => {
-      type obj = {
-        [k: string]: any;
-      };
-
-      const nestedObj1: obj = {
+      const nestedObj1: Obj = {
         nestedA: 1,
         nestedB: null,
       };
 
-      const nestedObj3: obj = {
+      const nestedObj3: Obj = {
         nestedA: 1,
         nestedB: undefined,
       };
-      const nestedObj2: obj = {
+      const nestedObj2: Obj = {
         nestedA: 1,
         nestedB: 2,
         nestedObj3,
