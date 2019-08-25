@@ -8,5 +8,12 @@
   "env": {
     "jest": true,
     "node": true
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.prod.js"
+      }
+    }
   }
 }
