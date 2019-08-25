@@ -3,7 +3,11 @@
   "extends": ["airbnb-base", "plugin:prettier/recommended"],
   "plugins": ["prettier", "jest"],
   "rules": {
-    "prettier/prettier": 2
+    "prettier/prettier": 2,
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/*.test.ts"] }
+    ]
   },
   "env": {
     "jest": true,
