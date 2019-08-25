@@ -3,7 +3,8 @@ interface Obj {
 }
 
 const deepCopyObj = (obj?: Obj) => {
-  return obj;
+  const result = obj ? {} : undefined;
+  return result;
 };
 
 export default deepCopyObj;

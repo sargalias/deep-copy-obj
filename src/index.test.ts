@@ -11,4 +11,12 @@ describe('deepCopyObj', () => {
       expect(result).toEqual(obj);
     });
   });
+
+  describe('reference tests', () => {
+    test('result of {} should not be the same object', () => {
+      const obj = {};
+      const result = deepCopyObj(obj);
+      expect(result).not.toBe(obj);
+    });
+  });
 });
