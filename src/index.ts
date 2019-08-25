@@ -1,3 +1,3 @@
-function foo() {}
+const deepCopyObj = () => {};
 
-export default foo;
+export default deepCopyObj;

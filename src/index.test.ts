@@ -1,5 +1,5 @@
-import foo from './index';
+import deepCopyObj from './index';
 
-test('stuff', () => {
-  expect(foo()).toBeUndefined();
+test('empty test', () => {
+  deepCopyObj();
 });
