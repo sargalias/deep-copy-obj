@@ -42,6 +42,19 @@ describe('deepCopyObj', () => {
 
       expect(result).toEqual(expected);
     });
+
+    test('should only copy own properties', () => {
+      const mockProto = {
+        protoProperty: 10,
+      };
+      const obj: Obj = Object.create(mockProto);
+      obj.a = 5;
+      obj.b = 7;
+
+      const result = deepCopyObj(obj);
+
+      expect(result).toEqual({ a: 5, b: 7 });
+    });
   });
 
   describe('reference tests', () => {
