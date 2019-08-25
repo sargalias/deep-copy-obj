@@ -11,6 +11,12 @@ describe('deepCopyObj', () => {
       ${{ a: 5, b: undefined, c: null }}
       ${{ a: 5, b: 7, c: {} }}
       ${{ a: 5, b: null, c: undefined, d: { a: 5, b: null, c: undefined } }}
+      ${{
+        a: { a: 5, b: null, c: undefined, d: { a: 1, b: null, c: undefined } },
+        b: null,
+        c: undefined,
+        d: { a: 5, b: null, c: undefined, d: { a: 1, b: null, c: undefined } },
+      }}
     `.test('deepCopyObj() called with $obj should return $obj', ({ obj }) => {
       const result = deepCopyObj(obj);
       expect(result).toEqual(obj);
