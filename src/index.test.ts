@@ -8,6 +8,7 @@ describe('deepCopyObj', () => {
       ${undefined}
       ${{}}
       ${{ a: 5, b: 7 }}
+      ${{ a: 5, b: 7, c: {} }}
     `.test('deepCopyObj() called with $obj should return $obj', ({ obj }) => {
       const result = deepCopyObj(obj);
       expect(result).toEqual(obj);
