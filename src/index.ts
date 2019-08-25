@@ -9,8 +9,8 @@ const deepCopyObj = (obj?: Obj) => {
 
   const result: Obj = {};
   Object.entries(obj).forEach(([key, value]) => {
-    if (typeof value === 'object' && value !== null) {
-      if (value.constructor === Object) {
+    if (isObjectSubtype(value)) {
+      if (isStrictObject(value)) {
         result[key] = deepCopyObj(value);
       }
     } else {
@@ -19,5 +19,10 @@ const deepCopyObj = (obj?: Obj) => {
   });
   return result;
 };
+
+const isObjectSubtype = (value: any): boolean =>
+  typeof value === 'object' && value !== null;
+
+const isStrictObject = (value: any): boolean => value.constructor === Object;
 
 export default deepCopyObj;
