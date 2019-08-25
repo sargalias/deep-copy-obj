@@ -21,5 +21,22 @@ describe('deepCopyObj', () => {
       const result = deepCopyObj(obj);
       expect(result).not.toBe(obj);
     });
+
+    test('result of nested object (one level) should not have the same objects in references', () => {
+      const nestedObj = {
+        nestedA: 1,
+        nestedB: 2,
+      };
+      const obj = {
+        a: 3,
+        b: 4,
+        nestedObj,
+      };
+
+      const result = deepCopyObj(obj);
+
+      expect(result).not.toBe(obj);
+      expect(result.nestedObj).not.toBe(nestedObj);
+    });
   });
 });

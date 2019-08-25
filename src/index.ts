@@ -9,7 +9,11 @@ const deepCopyObj = (obj?: Obj) => {
 
   const result: Obj = {};
   Object.entries(obj).forEach(([key, value]) => {
-    result[key] = value;
+    if (typeof value === 'object') {
+      result[key] = deepCopyObj(value);
+    } else {
+      result[key] = value;
+    }
   });
   return result;
 };
