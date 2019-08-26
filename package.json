@@ -1,5 +1,5 @@
 {
-  "name": "deepcopyobj3",
+  "name": "deepcopyobj",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,11 @@
     "test:watch": "npm run test -- --watch",
     "format": "prettier --write ./src/**/*.{js,jsx,css,scss,json,html}"
   },
-  "author": "",
+  "author": {
+    "name": "Spyros Argalias",
+    "email": "sargalias@gmail.com",
+    "url": "https://sargalias.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
