@@ -1,5 +1,5 @@
 import each from 'jest-each';
-import deepCopyObj, { Obj } from './index';
+import deepCopyObj, { Obj } from './index'; // eslint-disable-line no-unused-vars
 
 describe('deepCopyObj', () => {
   describe('equality tests', () => {
