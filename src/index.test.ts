@@ -1,9 +1,5 @@
 import each from 'jest-each';
-import deepCopyObj from './index';
-
-interface Obj {
-  [k: string]: any;
-}
+import deepCopyObj, { Obj } from './index';
 
 describe('deepCopyObj', () => {
   describe('equality tests', () => {

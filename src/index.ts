@@ -1,4 +1,4 @@
-interface Obj {
+export interface Obj {
   [k: string]: any;
 }
 
@@ -25,4 +25,4 @@ const isObjectSubtype = (value: any): boolean =>
 
 const isStrictObject = (value: any): boolean => value.constructor === Object;
 
-export default deepCopyObj;
+export { deepCopyObj as default };
